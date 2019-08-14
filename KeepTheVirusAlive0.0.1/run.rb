@@ -1,0 +1,15 @@
+require 'rubygems'
+require 'gosu'
+require 'yaml'
+
+require './resources/libs/settings'
+require './resources/libs/utilities'
+require './resources/libs/rocket'
+require './resources/libs/asteroids'
+require './resources/libs/stars'
+require './resources/libs/menu'
+require './resources/libs/menuitem'
+require './resources/libs/loader'
+require './resources/libs/meteor'
+require './resources/libs/game_window'
+
