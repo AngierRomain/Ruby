@@ -1,17 +1,34 @@
+require "json"
+
+def fileToString(file)
+	data = ""
+	file.each_line do |line|
+		if(data == "")
+			data = line
+		else
+			data += line
+		end
+	end
+	return data
+end
+
 class Map
 
-  TILE_SIZE = 32
+	TILE_SIZE = 32
+	GRASS_POS = 0
+	GROUND_POS = 5
 
-  # La position des tuiles que l'on va utiliser dans la tileset
-  GRASS_POS = 0
-  GROUND_POS = 5
+	def initialize()
+		@tileset = Gosu::Image.load_tiles('assets/tilesets/flowers.png', TILE_SIZE, TILE_SIZE, retro:true)
 
-  def initialize(window, width, height)
-    @tileset = Gosu::Image.load_tiles('assets/tilesets/flowers.png', TILE_SIZE, TILE_SIZE, retro:true)
+		fileMap = File.open("./assets/map.json", 'r')
+		@map = JSON.parse(fileToString(fileMap))
+	end
 
-  end
+	def draw
 
-  def draw
+	end
 
-  end
+	def save
+	end
 end

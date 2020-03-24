@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "rubygems"
-require 'json'
 require 'gosu'
 
 require_relative 'libs/map.rb'
@@ -14,7 +13,7 @@ class Window < Gosu::Window
     self.caption = 'The Good Florist - The Game'
     @song = Gosu::Song.new("assets/sounds/nature-sketch.ogg")
     @song.play(true)
-    @main_state = Map.new(self )
+    @main_state = Map.new()
   end
 
   def update
