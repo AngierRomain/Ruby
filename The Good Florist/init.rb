@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
+require "rubygems"
+require 'json'
 require 'gosu'
+
+require_relative 'libs/map.rb'
+require_relative 'libs/character.rb'
+require_relative 'libs/hero.rb'
 
 class Window < Gosu::Window
   def initialize
@@ -8,6 +14,7 @@ class Window < Gosu::Window
     self.caption = 'The Good Florist - The Game'
     @song = Gosu::Song.new("assets/sounds/nature-sketch.ogg")
     @song.play(true)
+    @main_state = Map.new(self )
   end
 
   def update
@@ -16,6 +23,9 @@ class Window < Gosu::Window
 
   def draw
     # contain code to redraw the whole scene
+    scale(4,4)do
+      @main_state.draw
+    end
   end
 end
 
