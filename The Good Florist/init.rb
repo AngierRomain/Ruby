@@ -21,17 +21,18 @@ class Window < Gosu::Window
 
   def update
     # contain the main game logic
-    @camx+=1 if Gosu::button_down?(Gosu::KB_RIGHT)
-    @camx-=1 if Gosu::button_down?(Gosu::KB_LEFT)
     @hero.update
+    @camx = @hero.x
+    @camy = @hero.y
   end
 
   def draw
     # contain code to redraw the whole scene
-    translate(@camx, @camy)do
+    scale(3, 3)do
       @main_state.draw
-      @hero.draw
+        @hero.draw
     end
+
   end
 end
 
